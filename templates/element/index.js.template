@@ -1,0 +1,14 @@
+import './component';
+import './preview';
+import './config';
+
+Shopware.Service('cmsService').registerCmsElement({
+    name: '##name##',
+    label: 'sw-cms.elements.##name##.label',
+    component: '##component-class##',
+    configComponent: '##config-class##',
+    previewComponent: '##preview-class##',
+    defaultConfig: {
+
+    }
+});

@@ -1,0 +1,5 @@
+{% block ##block## %}
+    <div class="##class##">
+        <slot name=''>{% block ##block##_ %}{% endblock %}</slot>
+    </div>
+{% endblock %}

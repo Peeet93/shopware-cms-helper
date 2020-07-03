@@ -1,0 +1,27 @@
+{
+  "name": "shopware-cms-helper",
+  "version": "1.0.0",
+  "description": "Create Shopware cms element and block structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Kevin Dohlen",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^7.3.0"
+  },
+  "homepage": "https://github.com/Peeet93/shopware-cms-helper#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Peeet93/shopware-cms-helper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Peeet93/shopware-cms-helper/issues"
+  },
+  "engines": {
+    "npm": ">=6.13.4",
+    "node": ">=10.18.1"
+  }
+}

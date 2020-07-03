@@ -1,0 +1,20 @@
+import './component';
+import './preview';
+
+Shopware.Service('cmsService').registerCmsBlock({
+    name: 'perk-box',
+    label: 'sw-cms.blocks.commerce.##name##.label',
+    category: 'text-image',
+    component: '##component-class##',
+    previewComponent: '##preview-class##',
+    defaultConfig: {
+        marginBottom: null,
+        marginTop: null,
+        marginLeft: null,
+        marginRight: null,
+    },
+    slots: {
+        '': ''
+    }
+});
+

@@ -1,0 +1,6 @@
+import template from './##class##.html.twig';
+import './##class##.scss';
+
+Shopware.Component.register('##class##', {
+    template
+});
