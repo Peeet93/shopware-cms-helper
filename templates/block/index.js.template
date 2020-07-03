@@ -2,7 +2,7 @@ import './component';
 import './preview';
 
 Shopware.Service('cmsService').registerCmsBlock({
-    name: 'perk-box',
+    name: '##name##',
     label: 'sw-cms.blocks.commerce.##name##.label',
     category: 'text-image',
     component: '##component-class##',

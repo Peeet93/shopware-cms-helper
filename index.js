@@ -57,21 +57,21 @@ inquirer.prompt(questions).then((answers) => {
     if(answers.type === "Block"){
         templateFolder = `${__dirname}/templates/block/`;
         previewClass = `${swPrefix}block-preview-${answers.name}`;
-        previewBlock = `${swPrefix.replace('-', '_')}block_preview_${answers.name.replace('-', '_')}`;
+        previewBlock = `${swPrefix.replace(/-/g, '_')}block_preview_${answers.name.replace(/-/g, '_')}`;
 
         componentClass = `${swPrefix}block-${answers.name}`;
-        componentBlock = `${swPrefix.replace('-', '_')}block_${answers.name.replace('-', '_')}`;
+        componentBlock = `${swPrefix.replace(/-/g, '_')}block_${answers.name.replace(/-/g, '_')}`;
 
     }else{
         templateFolder = `${__dirname}/templates/element/`;
         previewClass = `${swPrefix}el-preview-${answers.name}`;
-        previewBlock = `${swPrefix.replace('-', '_')}element_preview_${answers.name.replace('-', '_')}`;
+        previewBlock = `${swPrefix.replace(/-/g, '_')}element_preview_${answers.name.replace(/-/g, '_')}`;
 
         configClass = `${swPrefix}el-config-${answers.name}`
-        configBlock = `${swPrefix.replace('-', '_')}element_config_${answers.name.replace('-', '_')}`
+        configBlock = `${swPrefix.replace(/-/g, '_')}element_config_${answers.name.replace(/-/g, '_')}`
 
         componentClass = `${swPrefix}el-${answers.name}`;
-        componentBlock = `${swPrefix.replace('-', '_')}element_${answers.name.replace('-', '_')}`;
+        componentBlock = `${swPrefix.replace(/-/g, '_')}element_${answers.name.replace(/-/g, '_')}`;
 
         createDirectory(config);
 
