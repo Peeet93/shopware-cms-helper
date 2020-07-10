@@ -31,11 +31,11 @@ let createDirectory = function(dir){
 inquirer.prompt(questions).then((answers) => {
     const swPrefix = "sw-cms-";
 
-    let elementDir = currentDir + "\\" + answers.name + "\\";
+    let elementDir = currentDir + "/" + answers.name + "/";
 
-    let preview = elementDir + "preview\\";
-    let config = elementDir + "config\\";
-    let component = elementDir + "component\\";
+    let preview = elementDir + "preview/";
+    let config = elementDir + "config/";
+    let component = elementDir + "component/";
 
     let block;
     let templateFolder;
