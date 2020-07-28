@@ -50,7 +50,11 @@ class adminTemplateClass {
 
     setConfigPath(){
         this.composerPath = this.getComposerPath();
-        this.adminDir = this.composerPath + "/src/Resources/app/administration/src/sw-cms/";
+        if(this.composerPath === currentDir){
+            this.adminDir = currentDir + "/"
+        }else{
+            this.adminDir = this.composerPath + "/src/Resources/app/administration/src/sw-cms/";
+        }
 
         if (this.type === "block"){
             this.templateFolder = `${__dirname}/templates/admin/block/`;
