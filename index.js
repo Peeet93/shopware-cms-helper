@@ -1,6 +1,6 @@
 'use strict';
 
-const templateClass = require('./templateClass');
+const adminTemplateClass = require('./adminTemplateClass');
 const inquirer = require('inquirer');
 
 let questions = [
@@ -28,14 +28,14 @@ let questions = [
 
 const Rx = require('rxjs');
 const prompts = new Rx.Subject();
-const template = new templateClass("", "");
+const adminTemplate = new adminTemplateClass("", "");
 
 inquirer.prompt(prompts).ui.process.subscribe(async function(event){
     let nextQuestion = null;
 
     switch (event.name) {
         case "type":
-            template.setType(event.answer);
+            adminTemplate.setType(event.answer);
             if (event.answer === "block"){
                 nextQuestion = questions[1];
             }else{
@@ -44,17 +44,17 @@ inquirer.prompt(prompts).ui.process.subscribe(async function(event){
             break;
         case "block-type":
             nextQuestion = questions[2];
-            template.setBlockType(event.answer);
+            adminTemplate.setBlockType(event.answer);
             break;
         case "name":
-            template.setName(event.answer);
+            adminTemplate.setName(event.answer);
             break;
     }
 
     if(nextQuestion) {
         prompts.next(nextQuestion);
     }else{
-        template.createFromTemplates();
+        adminTemplate.createFromTemplates();
         prompts.complete();
     }
 });

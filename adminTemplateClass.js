@@ -4,7 +4,7 @@ const currentDir = process.cwd();
 const path = require('path');
 const shell = require('shelljs');
 
-class templateClass {
+class adminTemplateClass {
 
     constructor(type, name) {
         this.type = type;
@@ -53,7 +53,7 @@ class templateClass {
         this.adminDir = this.composerPath + "/src/Resources/app/administration/src/sw-cms/";
 
         if (this.type === "block"){
-            this.templateFolder = `${__dirname}/templates/block/`;
+            this.templateFolder = `${__dirname}/templates/admin/block/`;
 
             this.previewClass = `${swPrefix}block-preview-${this.name}`;
             this.previewBlock = `${swPrefix.replace(/-/g, '_')}block_preview_${this.name.replace(/-/g, '_')}`;
@@ -63,7 +63,7 @@ class templateClass {
 
             this.adminDir += "blocks/";
         }else if (this.type === "element"){
-            this.templateFolder = `${__dirname}/templates/elements/`;
+            this.templateFolder = `${__dirname}/templates/admin/elements/`;
 
             this.previewClass = `${swPrefix}el-preview-${this.name}`;
             this.previewBlock = `${swPrefix.replace(/-/g, '_')}element_preview_${this.name.replace(/-/g, '_')}`;
@@ -170,4 +170,4 @@ class templateClass {
     }
 }
 
-module.exports = templateClass;
+module.exports = adminTemplateClass;
