@@ -11,6 +11,18 @@ class templateClass {
         this.name = name;
     }
 
+    setType(type){
+        this.type = type;
+    }
+
+    setName(name){
+        this.name = name;
+    }
+
+    setBlockType(type){
+        this.blockType = type;
+    }
+
     getComposerPath(){
         return this.searchFileUpward("composer.json", currentDir);
     }
@@ -148,6 +160,7 @@ class templateClass {
     createIndex(){
         let block = fs.readFileSync(`${this.templateFolder}index.js.template`, "utf8");
         block = block.replace(/##name##/g, this.name);
+        block = block.replace(/##block-type##/g, this.blockType);
         block = block.replace(/##preview-class##/g, this.previewClass);
         if(this.configClass){
             block = block.replace(/##config-class##/g, this.configClass);

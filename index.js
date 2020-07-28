@@ -11,6 +11,12 @@ let questions = [
         choices: ['block', 'element'],
     },
     {
+        type: 'list',
+        name: 'block-type',
+        message: 'Choose your block-type:',
+        choices: ["text", "text-image", "image", "commerce", "form", "sidebar", "video"],
+    },
+    {
         type: 'input',
         name: 'name',
         message: 'Choose your name:',
@@ -20,7 +26,37 @@ let questions = [
     }
 ];
 
-inquirer.prompt(questions).then((answers) => {
-    let template = new templateClass(answers.type, answers.name);
-    template.createFromTemplates();
+const Rx = require('rxjs');
+const prompts = new Rx.Subject();
+const template = new templateClass("", "");
+
+inquirer.prompt(prompts).ui.process.subscribe(async function(event){
+    let nextQuestion = null;
+
+    switch (event.name) {
+        case "type":
+            template.setType(event.answer);
+            if (event.answer === "block"){
+                nextQuestion = questions[1];
+            }else{
+                nextQuestion = questions[2];
+            }
+            break;
+        case "block-type":
+            nextQuestion = questions[2];
+            template.setBlockType(event.answer);
+            break;
+        case "name":
+            template.setName(event.answer);
+            break;
+    }
+
+    if(nextQuestion) {
+        prompts.next(nextQuestion);
+    }else{
+        template.createFromTemplates();
+        prompts.complete();
+    }
 });
+
+prompts.next(questions[0]);
