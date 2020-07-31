@@ -1,14 +1,14 @@
 const swPrefix = "sw-cms-";
 const fs = require('fs');
 const currentDir = process.cwd();
-const path = require('path');
-const shell = require('shelljs');
+const fileController = require('./fileController');
 
-class adminTemplateClass {
+class adminTemplateController {
 
     constructor(type, name) {
         this.type = type;
         this.name = name;
+        this.files = new fileController();
     }
 
     setType(type){
@@ -23,33 +23,8 @@ class adminTemplateClass {
         this.blockType = type;
     }
 
-    getComposerPath(){
-        return this.searchFileUpward("composer.json", currentDir);
-    }
-
-    searchFileUpward(fileName, directory){
-        let dir = fs.readdirSync(directory);
-        for (let index in dir){
-            if(dir[index] === fileName){
-                return directory;
-            }
-        }
-        if(directory.split(path.sep)[1] === ""){
-            return currentDir;
-        }
-        return this.searchFileUpward(fileName, path.resolve(directory, '..'));
-    }
-
-    createDirectory (dir){
-        if (!fs.existsSync(dir)){
-            shell.mkdir('-p', dir);
-            return true;
-        }
-        return false;
-    }
-
     setConfigPath(){
-        this.composerPath = this.getComposerPath();
+        this.composerPath = this.files.getComposerPath(currentDir);
         if(this.composerPath === currentDir){
             this.adminDir = currentDir + "/"
         }else{
@@ -67,7 +42,7 @@ class adminTemplateClass {
 
             this.adminDir += "blocks/";
         }else if (this.type === "element"){
-            this.templateFolder = `${__dirname}/templates/admin/elements/`;
+            this.templateFolder = `${__dirname}/templates/admin/element/`;
 
             this.previewClass = `${swPrefix}el-preview-${this.name}`;
             this.previewBlock = `${swPrefix.replace(/-/g, '_')}element_preview_${this.name.replace(/-/g, '_')}`;
@@ -91,12 +66,12 @@ class adminTemplateClass {
 
     createFromTemplates(){
         this.setConfigPath();
-        this.createDirectory(this.previewDir);
-        this.createDirectory(this.componentDir);
+        this.files.createDirectory(this.previewDir);
+        this.files.createDirectory(this.componentDir);
         if(this.type === "block"){
             this.createBlock();
         }else if(this.type === "element"){
-            this.createDirectory(this.configDir);
+            this.files.createDirectory(this.configDir);
             this.createElement();
         }
     }
@@ -174,4 +149,4 @@ class adminTemplateClass {
     }
 }
 
-module.exports = adminTemplateClass;
+module.exports = adminTemplateController;

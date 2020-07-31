@@ -1,6 +1,7 @@
 'use strict';
 
-const adminTemplateClass = require('./adminTemplateClass');
+const adminTemplateController = require('./adminTemplateController');
+const storefrontTemplateController = require('./storefrontTemplateController');
 const inquirer = require('inquirer');
 
 let questions = [
@@ -28,7 +29,8 @@ let questions = [
 
 const Rx = require('rxjs');
 const prompts = new Rx.Subject();
-const adminTemplate = new adminTemplateClass("", "");
+const adminTemplate = new adminTemplateController("", "");
+const storefrontTemplate = new storefrontTemplateController("", "");
 
 inquirer.prompt(prompts).ui.process.subscribe(async function(event){
     let nextQuestion = null;
@@ -36,6 +38,7 @@ inquirer.prompt(prompts).ui.process.subscribe(async function(event){
     switch (event.name) {
         case "type":
             adminTemplate.setType(event.answer);
+            storefrontTemplate.setType(event.answer);
             if (event.answer === "block"){
                 nextQuestion = questions[1];
             }else{
@@ -48,6 +51,7 @@ inquirer.prompt(prompts).ui.process.subscribe(async function(event){
             break;
         case "name":
             adminTemplate.setName(event.answer);
+            storefrontTemplate.setName(event.answer);
             break;
     }
 
@@ -55,6 +59,7 @@ inquirer.prompt(prompts).ui.process.subscribe(async function(event){
         prompts.next(nextQuestion);
     }else{
         adminTemplate.createFromTemplates();
+        storefrontTemplate.createFromTemplates();
         prompts.complete();
     }
 });

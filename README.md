@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to shopware-cms-helper 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.1.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.2.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/npm-%3E%3D6.13.4-blue.svg" />
   <img src="https://img.shields.io/badge/node-%3E%3D10.18.1-blue.svg" />
   <a href="https://github.com/Peeet93/shopware-cms-helper#readme" target="_blank">
@@ -9,7 +9,7 @@
   <a href="https://github.com/Peeet93/shopware-cms-helper/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="https://github.com/Peeet93/shopware-cms-helper/blob/master/LICENSE" target="_blank">
+  <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/Peeet93/shopware-cms-helper" />
   </a>
 </p>
@@ -50,16 +50,11 @@ npm run test
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Peeet93/shopware-cms-helper/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Peeet93/shopware-cms-helper/issues). 
 
 ## Show your support
 
-Give a ⭐️if this project helped you!
-
-## 📝 License
-
-Copyright © 2020 [Kevin Dohlen](https://github.com/Peeet93).<br />
-This project is [MIT](https://github.com/Peeet93/shopware-cms-helper/blob/master/LICENSE) licensed.
+Give a ⭐️ if this project helped you!
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
