@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to shopware-cms-helper 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.2.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.3.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/npm-%3E%3D6.13.4-blue.svg" />
   <img src="https://img.shields.io/badge/node-%3E%3D10.18.1-blue.svg" />
   <a href="https://github.com/Peeet93/shopware-cms-helper#readme" target="_blank">
@@ -27,18 +27,14 @@
 
 ```sh
 npm install
+npm install -g .
 ```
 
 ## Usage
 
+Go to your plugin folder e.g. "/var/www/shopware/custom/plugins/YourPlugin/" and run:
 ```sh
-npm run start
-```
-
-## Run tests
-
-```sh
-npm run test
+shopware-cms-helper
 ```
 
 ## Author
