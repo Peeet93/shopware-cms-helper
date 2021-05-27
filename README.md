@@ -36,6 +36,16 @@ Go to your plugin folder e.g. "/var/www/shopware/custom/plugins/YourPlugin/" and
 ```sh
 shopware-cms-helper
 ```
+After this, you can add the new element/block to your main.js inside of "YourPlugin/src/Resources/app/administration/src" like:
+```js
+import './module/sw-cms/elements/test';
+import './module/sw-cms/blocks/test';
+```
+and run:
+```sh
+psh.phar administration:build
+```
+Now you should have a new element/block in your storefront administration
 
 ## Author
 

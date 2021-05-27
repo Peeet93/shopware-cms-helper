@@ -28,7 +28,7 @@ class adminTemplateController {
         if(this.composerPath === currentDir){
             this.adminDir = currentDir + "/"
         }else{
-            this.adminDir = this.composerPath + "/src/Resources/app/administration/src/sw-cms/";
+            this.adminDir = this.composerPath + "/src/Resources/app/administration/src/module/sw-cms/";
         }
 
         if (this.type === "block"){
