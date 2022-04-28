@@ -11,7 +11,7 @@
   "dependencies": {
     "inquirer": "^7.3.0",
     "rxjs": "^6.6.0",
-    "shelljs": "^0.8.4"
+    "shelljs": "^0.8.5"
   },
   "homepage": "https://github.com/Peeet93/shopware-cms-helper#readme",
   "repository": {
