@@ -21,9 +21,9 @@ class storefrontTemplateController {
     createFromTemplates() {
         this.composerPath = this.files.getComposerPath(currentDir);
         if (this.composerPath === currentDir) {
-            this.composerPath = currentDir + "/"
-        } else {
             this.composerPath = this.composerPath + "/src/Resources/views/storefront/";
+        } else {
+            this.composerPath = currentDir + "/"
         }
         let template = fs.readFileSync(`${__dirname}/templates/storefront/storefront.html.twig.template`, "utf8");
         if (this.type === "block") {
