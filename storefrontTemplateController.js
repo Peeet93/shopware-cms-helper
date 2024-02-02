@@ -11,7 +11,11 @@ class storefrontTemplateController {
     }
 
     setName(name) {
-        this.name = name;
+        this.name = name
+    }
+
+    getNameForBlocks(){
+        return this.name.replace(/-/g, '_');
     }
 
     setType(type) {
@@ -28,11 +32,11 @@ class storefrontTemplateController {
         let template = fs.readFileSync(`${__dirname}/templates/storefront/storefront.html.twig.template`, "utf8");
         if (this.type === "block") {
             this.files.createDirectory(`${this.composerPath}block`)
-            template = template.replace(/##block-name##/g, this.name);
+            template = template.replace(/##block-name##/g, this.getNameForBlocks());
             fs.writeFileSync(`${this.composerPath}block/cms-block-${this.name}.html.twig`, template);
         } else {
             this.files.createDirectory(`${this.composerPath}element`)
-            template = template.replace(/##block-name##/g, this.name);
+            template = template.replace(/##block-name##/g, this.getNameForBlocks());
             fs.writeFileSync(`${this.composerPath}element/cms-element-${this.name}.html.twig`, template);
         }
     }
