@@ -34,7 +34,7 @@ npm i shopware-cms-helper -g
 ## Usage
 
 ```sh
-shopware-cms-helper
+npx shopware-cms-helper
 ```
 
 ## Author
