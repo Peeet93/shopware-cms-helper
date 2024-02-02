@@ -1,14 +1,19 @@
 const swPrefix = "sw-cms-";
-const fs = require('fs');
 const currentDir = process.cwd();
-const fileController = require('./fileController');
+import FileController from './fileController.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-class adminTemplateController {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default class AdminTemplateController {
 
     constructor(type, name) {
         this.type = type;
         this.name = name;
-        this.files = new fileController();
+        this.files = new FileController();
     }
 
     setType(type){
@@ -148,5 +153,3 @@ class adminTemplateController {
         fs.writeFileSync(`${this.adminDir}index.js`, block);
     }
 }
-
-module.exports = adminTemplateController;

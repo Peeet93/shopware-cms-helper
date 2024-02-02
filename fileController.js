@@ -1,9 +1,9 @@
 const currentDir = process.cwd();
-const path = require('path');
-const fs = require('fs');
-const shell = require('shelljs');
+import path from 'path';
+import fs from 'fs';
+import shell from 'shelljs';
 
-class fileController {
+export default class FileController {
 
     searchFileUpward(fileName, directory) {
         let dir = fs.readdirSync(directory);
@@ -31,5 +31,3 @@ class fileController {
     }
 
 }
-
-module.exports = fileController;

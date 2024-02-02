@@ -1,13 +1,18 @@
 const currentDir = process.cwd();
-const fs = require('fs');
-const fileController = require('./fileController');
+import FileController from './fileController.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-class storefrontTemplateController {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default class StorefrontTemplateController {
 
     constructor(type, name) {
         this.type = type;
         this.name = name;
-        this.files = new fileController();
+        this.files = new FileController();
     }
 
     setName(name) {
@@ -42,5 +47,3 @@ class storefrontTemplateController {
     }
 
 }
-
-module.exports = storefrontTemplateController;

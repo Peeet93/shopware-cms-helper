@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require('../index.js');
+import shopwareCmsHelper from "../index.js";
+
+shopwareCmsHelper();
