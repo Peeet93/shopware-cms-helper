@@ -33,9 +33,30 @@ npm i shopware-cms-helper -g
 
 ## Usage
 
+go to your plugin folder e.g. `custom/plugins/MyPlugin` and run the following command
+
 ```sh
 npx shopware-cms-helper
 ```
+
+Choose your desired options and the plugin will create the necessary files for you
+
+After this, you can add the new element/block to your main.js inside of "YourPlugin/src/Resources/app/administration/src" like:
+```js
+import './module/sw-cms/elements/test';
+import './module/sw-cms/blocks/test';
+```
+and run:
+```sh
+psh.phar administration:build
+```
+If you dont have a psh.phar file, you can get it with this commands:
+```sh
+wget https://shopwarelabs.github.io/psh/psh.phar
+chmod +x psh.phar
+```
+Now you should have a new element/block in your storefront administration
+
 
 ## Author
 

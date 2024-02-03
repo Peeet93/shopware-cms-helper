@@ -1,6 +1,6 @@
 {
   "name": "shopware-cms-helper",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Create Shopware cms element and block structure",
   "main": "index.js",
   "type": "module",
